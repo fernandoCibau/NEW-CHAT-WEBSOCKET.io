@@ -1,13 +1,13 @@
 
-import experss from "express";
+import express from "express";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
 
-const app = experss();
+const app = express();
 const server = createServer( app );
 const io = new Server( server );
 
-app.use( experss.static( "src/public" ) );
+app.use( express.static( "src/public" ) );
 
 const allMessage = [];
 io.on( "connection", socket => {
